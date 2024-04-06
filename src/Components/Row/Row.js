@@ -23,7 +23,7 @@ const Row = ({tasks, allTasks, setAllTasks, refresh, setRefresh, rowID, title, r
                 {tasks.length > 0 && tasks.map((task, index) => (
                     <Task refresh={refresh} setRefresh={setRefresh} task={task} allTasks={allTasks} setAllTasks={setAllTasks} rowID={rowID} key={index} allRows={rows} />
                 ))}
-                <NewTask allTasks={allTasks} setAllTasks={setAllTasks} rowID={rowID} />
+                {/* <NewTask allTasks={allTasks} setAllTasks={setAllTasks} rowID={rowID} /> */}
             </div>
         </div>
     )

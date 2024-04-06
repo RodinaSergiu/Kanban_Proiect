@@ -46,6 +46,7 @@ const Task = ({refresh, setRefresh, task, allTasks, setAllTasks, rowID, allRows}
     const deleteTask = () => {
         const newTasks = allTasks.filter((eachTask) => eachTask.id !== task.id)
         setAllTasks(newTasks)
+        localStorage.setItem('tasks', JSON.stringify(newTasks));
     }
 
     return (

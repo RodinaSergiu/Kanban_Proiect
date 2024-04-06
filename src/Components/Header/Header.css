@@ -3,4 +3,16 @@
     color: #FFF;
     padding: 25px 45px;
     border-bottom: 3px solid rgb(52, 52, 60);
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        background-color:  rgb(99, 95, 192);
+        border-radius: 60px;
+        border-color: transparent;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-weight: bold;
+    }
 }

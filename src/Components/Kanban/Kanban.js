@@ -16,7 +16,7 @@ const Kanban = () => {
                 <Menu />
             </div>
             <div className='app-container p-0'>
-                <Header />
+                <Header allTasks={tasks} setAllTasks={setTasks} allRows={rows}/>
                 <div className='bg-hero-secondary tasks-container user-select-none'>
                     {rows.length > 0 && rows.map((row, index) => {
                         const rowTasks = [];
