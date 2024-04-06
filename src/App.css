@@ -1,0 +1,15 @@
+.bg-hero {
+  background-color: rgb(44, 44, 56);
+}
+
+.bg-hero-transparent {
+  background-color: rgba(44, 44, 56, 0.454);
+}
+
+.bg-hero-secondary {
+  background-color: rgb(33,33,45);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

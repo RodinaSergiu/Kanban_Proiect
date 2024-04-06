@@ -1,0 +1,16 @@
+.add-task {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: #FFF;
+}
+
+.add-task::placeholder {
+    color: #FFF;
+}
+
+.add-task-btn {
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 20px;
+}

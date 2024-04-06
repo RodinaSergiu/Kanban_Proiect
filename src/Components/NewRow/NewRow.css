@@ -1,0 +1,24 @@
+.add-row {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: #FFF;
+}
+.new-row-container {
+    max-height: 50px;
+}
+.add-row::placeholder {
+    color: #FFF;
+}
+
+.new-row {
+    margin-top: 60px;
+    margin-right: 50px;
+}
+
+.add-row-btn {
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 20px;
+    color: #FFF;
+}
