@@ -105,7 +105,7 @@ const Task = ({ refresh, setRefresh, task, allTasks, setAllTasks, rowID, allRows
                     <div key="1" className='mb-3'>
                         {
                             task.subtasks && task.subtasks.map((subtask, index) => 
-                            <Form.Check type="checkbox" id={index} label={subtask.name}/>)
+                            <Form.Check key={index} type="checkbox" id={index} label={subtask.name}/>)
                         }
 
                         
@@ -115,7 +115,7 @@ const Task = ({ refresh, setRefresh, task, allTasks, setAllTasks, rowID, allRows
                             disabled={true}
                             defaultValue ="0">
                                 {allRows.map((row) => (
-                                    <option value={row.id}>{row.title}</option>
+                                    <option key={row.id} value={row.id}>{row.title}</option>
                                 )) }
                             </Form.Select>
                 </Form>

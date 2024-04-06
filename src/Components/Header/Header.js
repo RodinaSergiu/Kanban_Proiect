@@ -88,7 +88,7 @@ const Header = ({allTasks, setAllTasks, allRows}) => {
                             onChange={(e) => setNewTaskRow(e.target.value)}
                             defaultValue ="0">
                                 {allRows.map((row) => (
-                                    <option value={row.id}>{row.title}</option>
+                                    <option key={row.id} value={row.id}>{row.title}</option>
                                 )) }
                             </Form.Select>
                         </Form.Group>
