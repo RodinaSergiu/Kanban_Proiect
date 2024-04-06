@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 const Header = ({allTasks, setAllTasks, allRows}) => {
     const [show, setShow] = useState(false)
     const [taskTitle, setNewTaskTitle] = useState('')
+    const [taskRow, setNewTaskRow] = useState('')
 
 
 
@@ -19,11 +20,12 @@ const Header = ({allTasks, setAllTasks, allRows}) => {
     const handleSave = (event) => {
         event.preventDefault()
         console.log(taskTitle)
+        console.log(taskRow)
         
         const newTask = {
             id: allTasks.length > 0 ? allTasks[allTasks.length - 1].id + 1 : 0,
             text: taskTitle,
-            rowID: allRows[0].id
+            rowID: parseInt(taskRow)
         }
 
         const localStorageTasks = [...allTasks, newTask];
@@ -32,7 +34,6 @@ const Header = ({allTasks, setAllTasks, allRows}) => {
 
         handleClose()
     }
-
 
     return (
         <div className='header bg-hero d-flex user-select-none'>
@@ -70,10 +71,10 @@ const Header = ({allTasks, setAllTasks, allRows}) => {
 
                         <Form.Group className="mb-3" controlId="exampleForm.taskStatus">
                             <Form.Label>Status</Form.Label>
-                            <Form.Select aria-label="Default select example">
-                                <option value="1">Todo</option>
-                                <option value="2">Progress</option>
-                                <option value="3">Altceva</option>
+                            <Form.Select aria-label="Default select example" onChange={(e) => setNewTaskRow(e.target.value)}>
+                                {allRows.map((row) => (
+                                    <option value={row.id}>{row.title}</option>
+                                )) }
                             </Form.Select>
                         </Form.Group>
 
