@@ -6,7 +6,11 @@ import Form from 'react-bootstrap/Form';
 const Header = ({allTasks, setAllTasks, allRows}) => {
     const [show, setShow] = useState(false)
     const [taskTitle, setNewTaskTitle] = useState('')
+    const [taskDescription, setNewTaskDescription] = useState('')
     const [taskRow, setNewTaskRow] = useState('')
+    const [subtask1, setNewTaskSubstask1] = useState('')
+    const [subtask2, setNewTaskSubstask2] = useState('')
+    const [subtask3, setNewTaskSubstask3] = useState('')
 
 
 
@@ -22,9 +26,16 @@ const Header = ({allTasks, setAllTasks, allRows}) => {
         console.log(taskTitle)
         console.log(taskRow)
         
+        const subtasks = []
+        if (subtask1 != '') subtasks.push({name: subtask1, isCompleted: false})
+        if (subtask2 != '') subtasks.push({name: subtask2, isCompleted: false})
+        if (subtask3 != '') subtasks.push({name: subtask3, isCompleted: false}) 
+
         const newTask = {
             id: allTasks.length > 0 ? allTasks[allTasks.length - 1].id + 1 : 0,
             text: taskTitle,
+            description: taskDescription,
+            subtasks: subtasks,
             rowID: parseInt(taskRow)
         }
 
@@ -59,19 +70,23 @@ const Header = ({allTasks, setAllTasks, allRows}) => {
                         <Form.Group className="mb-3" controlId="exampleForm.taskDescription">
                             <Form.Label>Description</Form.Label>
                             <Form.Control as="textarea" rows={3}
-                                placeholder="e.g. It's always good to take a break. This 15 minute break will recharge the batteries a little" />
+                                placeholder="e.g. It's always good to take a break. This 15 minute break will recharge the batteries a little" 
+                                onChange={(e) => setNewTaskDescription(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="exampleForm.subtasks">
                             <Form.Label>Subtasks</Form.Label>
-                            <Form.Control type="text" placeholder="e.g Make coffee>" />
-                            <Form.Control type="text" placeholder="e.g Drink cofee & smile>" />
-                            <button onClick={handleAddSubTask}> + Add New Subtask</button>
+                            <Form.Control type="text" placeholder="e.g Make coffee>" onChange={(e) => setNewTaskSubstask1(e.target.value)}/>
+                            <Form.Control type="text" placeholder="e.g Drink cofee & smile>" onChange={(e) => setNewTaskSubstask2(e.target.value)}/>
+                            <Form.Control type="text" placeholder="e.g somenthing else>" onChange={(e) => setNewTaskSubstask3(e.target.value)}/>
+                            {/* <button onClick={handleAddSubTask}> + Add New Subtask</button> */}
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="exampleForm.taskStatus">
                             <Form.Label>Status</Form.Label>
-                            <Form.Select aria-label="Default select example" onChange={(e) => setNewTaskRow(e.target.value)}>
+                            <Form.Select aria-label="Default select example" 
+                            onChange={(e) => setNewTaskRow(e.target.value)}
+                            defaultValue ="0">
                                 {allRows.map((row) => (
                                     <option value={row.id}>{row.title}</option>
                                 )) }
