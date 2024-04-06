@@ -15,7 +15,10 @@ const Header = ({allTasks, setAllTasks, allRows}) => {
 
 
     const handleClose = () => setShow(false)
-    const handleOpen = () => setShow(true)
+    const handleOpen = () => { 
+        setNewTaskRow(allRows[0].id)
+        setShow(true)
+    }
 
     const handleAddSubTask = (event) => {
         event.preventDefault()
@@ -49,7 +52,7 @@ const Header = ({allTasks, setAllTasks, allRows}) => {
     return (
         <div className='header bg-hero d-flex user-select-none'>
             <h2>Platform Launch</h2>
-            <button onClick={handleOpen}>+ Add New Task</button>
+            <button onClick={handleOpen} disabled={allRows.length==0 }>+ Add New Task</button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -86,7 +89,7 @@ const Header = ({allTasks, setAllTasks, allRows}) => {
                             <Form.Label>Status</Form.Label>
                             <Form.Select aria-label="Default select example" 
                             onChange={(e) => setNewTaskRow(e.target.value)}
-                            defaultValue ="0">
+                            defaultValue={taskRow}>
                                 {allRows.map((row) => (
                                     <option key={row.id} value={row.id}>{row.title}</option>
                                 )) }

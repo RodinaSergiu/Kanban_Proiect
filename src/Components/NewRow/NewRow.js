@@ -8,9 +8,8 @@ const NewRow = ({rows, setRows}) => {
     });
 
 
-    const updateRowTitle = (title) => {
-        console.log(title)
-        setNewRow({...newRow, title: title})
+    const updateRowTitle = (event) => {
+        setNewRow({...newRow, title: event.target.value})
     }
 
     const handleNewRow = () => {
